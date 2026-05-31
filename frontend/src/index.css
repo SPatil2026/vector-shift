@@ -2,19 +2,16 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap');
 
 :root {
-  --bg-color: #0f172a; /* slate-900 */
-  --node-bg: rgba(30, 41, 59, 0.75); /* slate-800 with opacity */
-  --node-border: rgba(255, 255, 255, 0.1);
-  --node-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.3);
-  --node-shadow-hover: 0 12px 48px 0 rgba(0, 0, 0, 0.5);
-  --primary: #818cf8; /* indigo-400 */
-  --primary-hover: #6366f1; /* indigo-500 */
-  --text-main: #f8fafc; /* slate-50 */
-  --text-muted: #94a3b8; /* slate-400 */
-  --handle-bg: #c084fc; /* purple-400 */
-  --handle-border: #1e293b;
-  --input-bg: rgba(15, 23, 42, 0.6);
-  --input-border: rgba(255, 255, 255, 0.15);
+  --bg-color: #ffffff;
+  --node-bg: #ffffff;
+  --node-border: #000000;
+  --node-shadow: none;
+  --node-shadow-hover: none;
+  --primary: #000000;
+  --primary-hover: #000000;
+  --text-main: #000000;
+  --text-muted: #000000;
+  --handle-bg: #ffffff;
 }
 
 body {
@@ -25,35 +22,27 @@ body {
   -webkit-font-smoothing: antialiased;
 }
 
-/* React Flow Background adjustments */
-.react-flow__background {
-  background-color: var(--bg-color);
-}
-
-/* Node Container Styles - Glassmorphism */
+/* Node Container Styles */
 .node-container {
   background: var(--node-bg);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
-  border-radius: 16px;
+  border-radius: 0px;
   box-shadow: var(--node-shadow);
   border: 1px solid var(--node-border);
-  min-width: 220px;
+  min-width: 200px;
   display: flex;
   flex-direction: column;
-  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-  overflow: visible;
+  transition: none;
+  overflow: visible; /* React flow handles overflow if hidden */
 }
 
 .node-container:hover {
-  box-shadow: var(--node-shadow-hover);
-  border-color: rgba(255, 255, 255, 0.2);
-  transform: translateY(-2px);
+  box-shadow: 2px 2px 0px 0px #000000;
+  border-color: #000000;
 }
 
 .node-header {
-  background: rgba(255, 255, 255, 0.03);
-  padding: 12px 16px;
+  background: #ffffff;
+  padding: 10px 16px;
   font-weight: 600;
   font-size: 14px;
   border-bottom: 1px solid var(--node-border);
@@ -61,120 +50,105 @@ body {
   display: flex;
   align-items: center;
   gap: 8px;
-  border-top-left-radius: 16px;
-  border-top-right-radius: 16px;
-  letter-spacing: 0.5px;
+  border-top-left-radius: 0px;
+  border-top-right-radius: 0px;
 }
 
 .node-content {
   padding: 16px;
   display: flex;
   flex-direction: column;
-  gap: 14px;
+  gap: 12px;
 }
 
 .node-content label {
   display: flex;
   flex-direction: column;
   font-size: 12px;
-  font-weight: 500;
+  font-weight: 600;
   color: var(--text-muted);
-  gap: 6px;
-  letter-spacing: 0.3px;
+  gap: 4px;
 }
 
 .node-content input,
 .node-content select,
 .node-content textarea {
-  border: 1px solid var(--input-border);
-  border-radius: 8px;
-  padding: 10px 12px;
+  border: 1px solid #000000;
+  border-radius: 0px;
+  padding: 8px 10px;
   font-size: 13px;
   font-family: 'Inter', sans-serif;
-  background: var(--input-bg);
-  color: var(--text-main);
-  transition: all 0.2s ease;
+  background: #ffffff;
+  color: #000000;
+  transition: none;
 }
 
 .node-content input:focus,
 .node-content select:focus,
 .node-content textarea:focus {
   outline: none;
-  border-color: var(--primary);
-  box-shadow: 0 0 0 3px rgba(129, 140, 248, 0.2);
-  background: rgba(15, 23, 42, 0.8);
+  border-color: #000000;
+  box-shadow: 1px 1px 0px 0px #000000;
+  background: #ffffff;
 }
 
 /* Handles */
 .react-flow__handle {
-  width: 12px;
-  height: 12px;
+  width: 10px;
+  height: 10px;
   background-color: var(--handle-bg);
-  border: 2px solid var(--handle-border);
-  transition: transform 0.2s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.2s;
-  box-shadow: 0 0 8px rgba(192, 132, 252, 0.4);
+  border: 2px solid #000000;
+  transition: none;
+  border-radius: 0px;
 }
 
 .react-flow__handle:hover {
-  transform: scale(1.4);
-  box-shadow: 0 0 12px rgba(192, 132, 252, 0.8);
+  background-color: #000000;
 }
 
 /* Toolbar Node */
 .draggable-node {
   cursor: grab;
-  min-width: 100px;
-  height: 44px;
+  min-width: 90px;
+  height: 48px;
   display: flex;
   align-items: center;
   justify-content: center;
-  border-radius: 10px;
-  background: rgba(30, 41, 59, 0.8);
-  backdrop-filter: blur(8px);
+  border-radius: 0px;
+  background: #ffffff;
   color: var(--text-main);
   border: 1px solid var(--node-border);
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  box-shadow: none;
   font-size: 14px;
-  font-weight: 500;
-  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  font-weight: 600;
+  transition: none;
 }
 
 .draggable-node:hover {
-  background: rgba(51, 65, 85, 0.9);
-  border-color: var(--primary);
-  color: var(--primary);
-  transform: translateY(-3px);
-  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.4), 0 0 12px rgba(129, 140, 248, 0.2);
+  background: #000000;
+  color: #ffffff;
 }
 
 /* Submit Button */
 .submit-btn {
-  background: linear-gradient(135deg, #6366f1 0%, #a855f7 100%);
-  color: white;
-  border: none;
-  border-radius: 12px;
-  padding: 14px 36px;
+  background: #ffffff;
+  color: #000000;
+  border: 2px solid #000000;
+  border-radius: 0px;
+  padding: 12px 32px;
   font-size: 16px;
   font-weight: 600;
   cursor: pointer;
-  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
-  box-shadow: 0 4px 15px rgba(99, 102, 241, 0.4);
-  letter-spacing: 0.5px;
+  transition: none;
+  box-shadow: none;
 }
 
 .submit-btn:hover {
-  transform: translateY(-2px) scale(1.02);
-  box-shadow: 0 8px 25px rgba(99, 102, 241, 0.6);
+  background: #000000;
+  color: #ffffff;
 }
 
 .submit-btn:active {
-  transform: translateY(1px);
-  box-shadow: 0 2px 10px rgba(99, 102, 241, 0.3);
+  background: #333333;
+  color: #ffffff;
 }
-
-/* Specific Node overrides if needed */
-option {
-  background-color: var(--bg-color);
-  color: var(--text-main);
-}
-
